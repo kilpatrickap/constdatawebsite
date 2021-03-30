@@ -20,7 +20,7 @@ function Middle() {
 					<Card.Body>
 						<Card.Text>Click here for Materials cost</Card.Text>
 						<Link to="/materials">
-							<Button variant="secondary" size="lg" block>
+							<Button variant="secondary" size="lg" block >
 								Materials
 							</Button>
 						</Link>

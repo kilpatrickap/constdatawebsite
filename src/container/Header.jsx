@@ -3,11 +3,15 @@ import { Navbar, Nav } from "react-bootstrap";
 import Icon from "../assets/icon.png";
 import "../styles/headerStyle.css";
 
+const cardStyle = {
+	boxShadow: "5px 8px 24px 5px #8888",
+};
+
 
 function Header() {
 	return (
 		<div>
-			<Navbar bg="dark" variant="dark" expand="lg">
+			<Navbar bg="dark" variant="dark" expand="lg" style={cardStyle}>
 				<Navbar.Brand href="/">
 					<img
 						alt="Icon"
