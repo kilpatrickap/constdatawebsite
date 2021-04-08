@@ -1,4 +1,6 @@
+import axios from "axios";
 import MUIDataTable from "mui-datatables";
+import React from "react";
 
 const columns = [
 	{
@@ -83,34 +85,51 @@ const columns = [
 	},
 ];
 
-const data = [
-	{
-		Code: "EQP001",
-		Equipment: "Plate Compactor",
-		Quantity: "1.00",
-		Unit: "Day",
-		HiringRate: "100.00",
-		Renter: "ABC Rentals Ltd",
-		Location: "Accra",
-		DigitalAddress: "GT-012-3456",
-		Contact: "+ 233 303 100 200",
-		Date: "29-Mar-2021",
-	},
-];
 
 const options = {
 	filterType: "checkbox",
+	responsive: "scroll",
 };
 
-function MuitableEquipment() {
-	return (
-		<MUIDataTable
-			title={"Equipment Rental list"}
-			data={data}
-			columns={columns}
-			options={options}
-		/>
-	);
+
+class MuitableEquipment extends React.Component {
+	state = {
+		plants: [],
+		data: [],
+	};
+
+	componentDidMount() {
+		axios.get("http://localhost:4000/plants/").then((res) => {
+			const plants = res.data;
+			const data = [];
+			plants.map((x) =>
+				data.push({
+					Code: x.plant_code,
+					Equipment: x.plant_description,
+					Quantity: x.plant_quantity,
+					Unit: x.plant_unit,
+					HiringRate: x.plant_rate,
+					Renter: x.plant_renter,
+					Location: x.plant_location,
+					DigitalAddress: x.plant_address,
+					Contact: x.plant_contact,
+					Date: x.plant_date,
+				})
+			);
+			this.setState({ data });
+		});
+	}
+
+	render() {
+		return (
+			<MUIDataTable
+				title={"Equipment Rental list"}
+				data={this.state.data}
+				columns={columns}
+				options={options}
+			/>
+		);
+	}
 }
 
-export default MuitableEquipment;
+export default (MuitableEquipment);
