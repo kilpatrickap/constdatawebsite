@@ -1,4 +1,6 @@
+import axios from "axios";
 import MUIDataTable from "mui-datatables";
+import React from "react";
 
 const columns = [
 	{
@@ -34,7 +36,7 @@ const columns = [
 		},
 	},
 	{
-		name: "BasicPrice",
+		name: "Price",
 		label: "Basic Price (GHc)",
 		options: {
 			filter: false,
@@ -83,178 +85,49 @@ const columns = [
 	},
 ];
 
-const data = [
-	{
-		Code: "MAT001",
-		Materials: "Ghacem Super Strong 42.5R cement (50kg/bag)",
-		Quantity: "1.00",
-		Unit: "bag",
-		BasicPrice: "40.59",
-		Supplier: "Ghacem Ltd",
-		Location: "Tema",
-		DigitalAddress: "GT-026-6671",
-		Contact: "+ 233 303 204 225/6",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT002",
-		Materials: "Ghacem Super Strong 32.5R cement (50kg/bag)",
-		Quantity: "1.00",
-		Unit: "bag",
-		BasicPrice: "40.24",
-		Supplier: "Ghacem Ltd",
-		Location: "Tema",
-		DigitalAddress: "GT-026-6671",
-		Contact: "+ 233 303 204 225/6",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT003",
-		Materials: "Ghacem Extra 42.5R cement (50kg/bag)",
-		Quantity: "1.00",
-		Unit: "bag",
-		BasicPrice: "41.54",
-		Supplier: "Ghacem Ltd",
-		Location: "Tema",
-		DigitalAddress: "GT-026-6671",
-		Contact: "+ 233 303 204 225/6",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT004",
-		Materials: "Ghacem Super Strong 42.5R (Bulk/tonne)",
-		Quantity: "1.00",
-		Unit: "tonne",
-		BasicPrice: "832.49",
-		Supplier: "Ghacem Ltd",
-		Location: "Tema",
-		DigitalAddress: "GT-026-6671",
-		Contact: "+ 233 303 204 225/6",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT005",
-		Materials: "Ghacem Super Rapid 32.5R (Bulk/tonne)",
-		Quantity: "1.00",
-		Unit: "tonne",
-		BasicPrice: "825.40",
-		Supplier: "Ghacem Ltd",
-		Location: "Tema",
-		DigitalAddress: "GT-026-6671",
-		Contact: "+ 233 303 204 225/6",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT006",
-		Materials: "Ghacem Super Extra 42.5R (Bulk/tonne)",
-		Quantity: "1.00",
-		Unit: "tonne",
-		BasicPrice: "869.60",
-		Supplier: "Ghacem Ltd",
-		Location: "Accra",
-		DigitalAddress: "GT-026-6671",
-		Contact: "+ 233 303 204 225/6",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT007",
-		Materials: "Ready-Mix Concrete (C15)",
-		Quantity: "1.00",
-		Unit: "m3",
-		BasicPrice: "500.85",
-		Supplier: "Sarcon Ltd",
-		Location: "Accra",
-		DigitalAddress: "GA-282-6988",
-		Contact: "+ 233 302 815 671",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT008",
-		Materials: "Ready-Mix Concrete (C20)",
-		Quantity: "1.00",
-		Unit: "m3",
-		BasicPrice: "610.17",
-		Supplier: "Sarcon Ltd",
-		Location: "Accra",
-		DigitalAddress: "GA-282-6988",
-		Contact: "+ 233 302 815 671",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT009",
-		Materials: "Ready-Mix Concrete (C25)",
-		Quantity: "1.00",
-		Unit: "m3",
-		BasicPrice: "676.86",
-		Supplier: "Sarcon Ltd",
-		Location: "Accra",
-		DigitalAddress: "GA-282-6988",
-		Contact: "+ 233 302 815 671",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT0010",
-		Materials: "Ready-Mix Concrete (C30)",
-		Quantity: "1.00",
-		Unit: "m3",
-		BasicPrice: "717.02",
-		Supplier: "Sarcon Ltd",
-		Location: "Accra",
-		DigitalAddress: "GA-282-6988",
-		Contact: "+ 233 302 815 671",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT0011",
-		Materials: "Ready-Mix Concrete (C35)",
-		Quantity: "1.00",
-		Unit: "m3",
-		BasicPrice: "739.47",
-		Supplier: "Sarcon Ltd",
-		Location: "Accra",
-		DigitalAddress: "GA-282-6988",
-		Contact: "+ 233 302 815 671",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT0012",
-		Materials: "Ready-Mix Concrete (C40)",
-		Quantity: "1.00",
-		Unit: "m3",
-		BasicPrice: "759.55",
-		Supplier: "Sarcon Ltd",
-		Location: "Accra",
-		DigitalAddress: "GA-282-6988",
-		Contact: "+ 233 302 815 671",
-		Date: "29-Mar-2021",
-	},
-	{
-		Code: "MAT0013",
-		Materials: "Ready-Mix Concrete (C45)",
-		Quantity: "1.00",
-		Unit: "m3",
-		BasicPrice: "811.52",
-		Supplier: "Sarcon Ltd",
-		Location: "Accra",
-		DigitalAddress: "GA-282-6988",
-		Contact: "+ 233 302 815 671",
-		Date: "29-Mar-2021",
-	},
-];
-
 const options = {
 	filterType: "checkbox",
+	responsive: "scroll",
 };
 
-function MuitableMaterials() {
-	return (
-		<MUIDataTable
-			title={"Basic Materials Pricelist"}
-			data={data}
-			columns={columns}
-			options={options}
-		/>
-	);
+class MuitableMaterials extends React.Component {
+	state = {
+		materials: [],
+		data: [],
+	};
+
+	componentDidMount() {
+		axios.get("http://localhost:4000/materials/").then((res) => {
+			const materials = res.data;
+			const data = [];
+			materials.map((x) =>
+				data.push({
+					Code: x.mat_code,
+					Equipment: x.mat_description,
+					Quantity: x.mat_quantity,
+					Unit: x.mat_unit,
+					Price: x.mat_price,
+					Supplier: x.mat_supplier,
+					Location: x.mat_location,
+					DigitalAddress: x.mat_address,
+					Contact: x.mat_contact,
+					Date: x.mat_date,
+				})
+			);
+			this.setState({ data });
+		});
+	}
+
+	render() {
+		return (
+			<MUIDataTable
+				title={"Materials Pricelist"}
+				data={this.state.data}
+				columns={columns}
+				options={options}
+			/>
+		);
+	}
 }
 
 export default MuitableMaterials;

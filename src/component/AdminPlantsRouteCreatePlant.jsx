@@ -4,13 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NumberFormat from "react-number-format";
 
 
-
-//Table column width styles
-// const headerStyleMedium = {
-// 	width: "170px",
-// 	textAlign: "left",
-// };
-
 const headerStyleLarge = {
 	width: "400px",
 	textAlign: "left",
@@ -188,7 +181,7 @@ export default class AdminPlantsRouteCreatePlant extends Component {
 											<input
 												type="text"
 												className="form-control"
-												placeholder="PLT001"
+												placeholder="EQP001"
 												value={this.state.plant_code}
 												onChange={this.onChangePlantCode}
 											/>

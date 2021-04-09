@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import AdminMaterialsRoute from "./AdminMaterialsRoute";
 import AdminPlantsRoute from "./AdminPlantsRoute";
 
 class AdminRoute extends Component {
@@ -37,7 +37,7 @@ class AdminRoute extends Component {
 
 							<br />
 
-							{/* <Route path="/admin/materials" exact component={""} /> */}
+							<Route path="/admin/materials" exact component={AdminMaterialsRoute} />
 							<Route path="/admin/plant" exact component={AdminPlantsRoute} />
 							{/* <Route path="/admin/labour" exact component={""} /> */}
 						</div>

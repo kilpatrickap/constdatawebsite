@@ -85,12 +85,10 @@ const columns = [
 	},
 ];
 
-
 const options = {
 	filterType: "checkbox",
 	responsive: "scroll",
 };
-
 
 class MuitableEquipment extends React.Component {
 	state = {
@@ -132,4 +130,4 @@ class MuitableEquipment extends React.Component {
 	}
 }
 
-export default (MuitableEquipment);
+export default MuitableEquipment;
