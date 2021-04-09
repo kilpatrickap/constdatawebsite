@@ -237,7 +237,7 @@ export default class AdminMaterialsRouteEditMaterial extends Component {
 										<div className="form-group">
 											<NumberFormat
 												className="form-control"
-												value={this.state.mat_rate}
+												value={this.state.mat_price}
 												thousandSeparator={true}
 												decimalScale={2}
 												fixedDecimalScale={true}
@@ -245,7 +245,7 @@ export default class AdminMaterialsRouteEditMaterial extends Component {
 													const { formattedValue, value } = values;
 													// formattedValue = $2,223.00
 													// value ie, 2223
-													this.setState({ mat_rate: formattedValue });
+													this.setState({ mat_price: formattedValue });
 												}}
 											/>
 										</div>

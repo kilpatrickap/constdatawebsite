@@ -103,7 +103,7 @@ class MuitableMaterials extends React.Component {
 			materials.map((x) =>
 				data.push({
 					Code: x.mat_code,
-					Equipment: x.mat_description,
+					Materials: x.mat_description,
 					Quantity: x.mat_quantity,
 					Unit: x.mat_unit,
 					Price: x.mat_price,
