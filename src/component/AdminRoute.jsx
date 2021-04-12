@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdminMaterialsRoute from "./AdminMaterialsRoute";
 import AdminPlantsRoute from "./AdminPlantsRoute";
+import AdminLabourRoute from "./AdminLabourRoute";
 
 class AdminRoute extends Component {
 	render() {
@@ -39,7 +40,7 @@ class AdminRoute extends Component {
 
 							<Route path="/admin/materials" exact component={AdminMaterialsRoute} />
 							<Route path="/admin/plant" exact component={AdminPlantsRoute} />
-							{/* <Route path="/admin/labour" exact component={""} /> */}
+							<Route path="/admin/labour" exact component={AdminLabourRoute} />
 						</div>
 					</Switch>
 				</Router>

@@ -1,4 +1,6 @@
+import axios from "axios";
 import MUIDataTable from "mui-datatables";
+import React from "react";
 
 const columns = [
 	{
@@ -34,7 +36,7 @@ const columns = [
 		},
 	},
 	{
-		name: "LabourRate",
+		name: "Rate",
 		label: "Labour Rate (GHc)",
 		options: {
 			filter: false,
@@ -83,34 +85,49 @@ const columns = [
 	},
 ];
 
-const data = [
-	{
-		Code: "LAB001",
-		Service: "Masonry works",
-		Quantity: "1.00",
-		Unit: "Day",
-		LabourRate: "100.00",
-		Labourer: "Agyekum Jnr.",
-		Location: "Accra",
-		DigitalAddress: "GT-012-3456",
-		Contact: "0244 123 456",
-		Date: "29-Mar-2021",
-	},
-];
-
 const options = {
 	filterType: "checkbox",
+	responsive: "scroll",
 };
 
-function MuitableLabour() {
-	return (
-		<MUIDataTable
-			title={"Labour Costs (All-In-Rate)"}
-			data={data}
-			columns={columns}
-			options={options}
-		/>
-	);
+class MuitableLabour extends React.Component {
+	state = {
+		labour: [],
+		data: [],
+	};
+
+	componentDidMount() {
+		axios.get("http://localhost:4000/labour/").then((res) => {
+			const labour = res.data;
+			const data = [];
+			labour.map((x) =>
+				data.push({
+					Code: x.lab_code,
+					Service: x.lab_service,
+					Quantity: x.lab_quantity,
+					Unit: x.lab_unit,
+					Rate: x.lab_rate,
+					Labourer: x.lab_labourer,
+					Location: x.lab_location,
+					DigitalAddress: x.lab_address,
+					Contact: x.lab_contact,
+					Date: x.lab_date,
+				})
+			);
+			this.setState({ data });
+		});
+	}
+
+	render() {
+		return (
+			<MUIDataTable
+				title={"Labour Costs (All-In-Rates)"}
+				data={this.state.data}
+				columns={columns}
+				options={options}
+			/>
+		);
+	}
 }
 
 export default MuitableLabour;

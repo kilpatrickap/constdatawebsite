@@ -5,6 +5,9 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const plantRoutes = express.Router();
 const materialsRoutes = express.Router();
+const labourRoutes = express.Router();
+
+
 const PORT = 4000;
 
 
@@ -175,11 +178,108 @@ materialsRoutes.route("/delete/:id").get(function (req, res) {
 	);
 });
 
+//////////////////// --LABOUR-- /////////////////////////////
+
+let Labour = require("./labour.model");
+
+app.use(cors());
+app.use(bodyParser.json());
+
+mongoose.connect("mongodb://127.0.0.1:27017/labour", { useNewUrlParser: true });
+
+
+connection.once("open", function () {
+	console.log("MongoDB database connection established successfully");
+});
+
+labourRoutes.route("/").get(function (req, res) {
+	Labour.find(function (err, labours) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json(labours);
+		}
+	});
+});
+
+labourRoutes.route("/:id").get(function (req, res) {
+	let id = req.params.id;
+	Labour.findById(id, function (err, labour) {
+		res.json(labour);
+	});
+});
+
+labourRoutes.route("/add").post(function (req, res) {
+	let labour = new Labour(req.body);
+	labour
+		.save()
+		.then((labour) => {
+			res.status(200).json({ labour: "labour added successfully" });
+		})
+		.catch((err) => {
+			res.status(400).send("adding new labour failed");
+		});
+});
+
+labourRoutes.route("/update/:id").post(function (req, res) {
+	Labour.findById(req.params.id, function (err, labour) {
+		if (!labour) res.status(404).send("data is not found");
+		else labour.lab_code = req.body.lab_code;
+		labour.lab_service = req.body.lab_service;
+		labour.lab_quantity = req.body.lab_quantity;
+		labour.lab_unit = req.body.lab_unit;
+		labour.lab_rate = req.body.lab_rate;
+		labour.lab_labourer = req.body.lab_labourer;
+		labour.lab_location = req.body.lab_location;
+		labour.lab_address = req.body.lab_address;
+		labour.lab_contact = req.body.lab_contact;
+		labour.lab_date = req.body.lab_date;
+
+
+		labour
+			.save()
+			.then((labour) => {
+				res.json("Labour updated!");
+			})
+			.catch((err) => {
+				res.status(400).send("Update not possible");
+			});
+	});
+});
+
+//Delete a material item
+labourRoutes.route("/delete/:id").get(function (req, res) {
+	Labour.findByIdAndRemove(
+		{
+			_id: req.params.id,
+		},
+		function (err, labour) {
+			if (err) res.json(err);
+			else res.json("Labour item deleted Successfully");
+		}
+	);
+});
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.use("/labour", labourRoutes);
 
 app.use("/materials", materialsRoutes);
 
