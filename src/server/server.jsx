@@ -7,10 +7,9 @@ const plantRoutes = express.Router();
 const materialsRoutes = express.Router();
 const labourRoutes = express.Router();
 
+const userRoutes = require("./userRoutes");
 
 const PORT = 4000;
-
-
 
 //////////////////// --PLANTS-- /////////////////////////////
 
@@ -94,8 +93,6 @@ plantRoutes.route("/delete/:id").get(function (req, res) {
 	);
 });
 
-
-
 //////////////////// --MATERIALS-- /////////////////////////////
 
 let Material = require("./material.model");
@@ -103,8 +100,9 @@ let Material = require("./material.model");
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/materials", { useNewUrlParser: true });
-
+mongoose.connect("mongodb://127.0.0.1:27017/materials", {
+	useNewUrlParser: true,
+});
 
 connection.once("open", function () {
 	console.log("MongoDB database connection established successfully");
@@ -153,7 +151,6 @@ materialsRoutes.route("/update/:id").post(function (req, res) {
 		material.mat_contact = req.body.mat_contact;
 		material.mat_date = req.body.mat_date;
 
-
 		material
 			.save()
 			.then((material) => {
@@ -186,7 +183,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect("mongodb://127.0.0.1:27017/labour", { useNewUrlParser: true });
-
 
 connection.once("open", function () {
 	console.log("MongoDB database connection established successfully");
@@ -235,7 +231,6 @@ labourRoutes.route("/update/:id").post(function (req, res) {
 		labour.lab_contact = req.body.lab_contact;
 		labour.lab_date = req.body.lab_date;
 
-
 		labour
 			.save()
 			.then((labour) => {
@@ -260,6 +255,16 @@ labourRoutes.route("/delete/:id").get(function (req, res) {
 	);
 });
 
+//////////////////// --LOGIN AUTHENTICATION-- /////////////////////////////
+
+mongoose.connect("mongodb://127.0.0.1:27017/users", { useNewUrlParser: true });
+
+connection.once("open", function () {
+	console.log("MongoDB database connection established successfully");
+});
+
+app.use(express.json());
+// here we want express to use userRoutes for all requests coming at /auth like /auth/login
 
 
 
@@ -269,15 +274,7 @@ labourRoutes.route("/delete/:id").get(function (req, res) {
 
 
 
-
-
-
-
-
-
-
-
-
+app.use("/auth", userRoutes);
 
 app.use("/labour", labourRoutes);
 
