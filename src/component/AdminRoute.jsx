@@ -1,9 +1,17 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import {
+	withRouter,
+	BrowserRouter as Router,
+	Route,
+	Link,
+	Switch,
+} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdminMaterialsRoute from "./AdminMaterialsRoute";
 import AdminPlantsRoute from "./AdminPlantsRoute";
 import AdminLabourRoute from "./AdminLabourRoute";
+
+import { removeUserSession } from "../Utils/Common";
 
 class AdminRoute extends Component {
 	render() {
@@ -34,11 +42,25 @@ class AdminRoute extends Component {
 										Labour
 									</button>
 								</Link>
+
+								<Link to="" style={{ padding: 5 }}>
+									<button
+										type="button"
+										class="btn btn-danger"
+										onClick={this.handleLogout}
+									>
+										Logout
+									</button>
+								</Link>
 							</div>
 
 							<br />
 
-							<Route path="/admin/materials" exact component={AdminMaterialsRoute} />
+							<Route
+								path="/admin/materials"
+								exact
+								component={AdminMaterialsRoute}
+							/>
 							<Route path="/admin/plant" exact component={AdminPlantsRoute} />
 							<Route path="/admin/labour" exact component={AdminLabourRoute} />
 						</div>
@@ -49,4 +71,4 @@ class AdminRoute extends Component {
 	}
 }
 
-export default AdminRoute;
+export default withRouter(AdminRoute);

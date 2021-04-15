@@ -26,7 +26,7 @@ function LoginRoute(props) {
 			.then((response) => {
 				console.log(response.data);
 				setUserSession( response.data.user);
-				props.history.push("/admin"); 		//Unhandled Rejection (TypeError): Cannot read property 'push' of undefined
+				props.history.push("/admin"); 		
 			});
 	};
 
