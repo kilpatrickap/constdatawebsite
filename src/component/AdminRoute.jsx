@@ -14,6 +14,18 @@ import AdminLabourRoute from "./AdminLabourRoute";
 import { removeUserSession } from "../Utils/Common";
 
 class AdminRoute extends Component {
+
+	constructor(props) {
+		super(props);
+		this.handleLogout = this.handleLogout.bind(this);
+	}
+
+	handleLogout() {
+		removeUserSession();
+		this.props.history.push("/login");
+		console.log("Click happened");
+	};
+
 	render() {
 		return (
 			<div>
@@ -43,7 +55,7 @@ class AdminRoute extends Component {
 									</button>
 								</Link>
 
-								<Link to="" style={{ padding: 5 }}>
+								<Link to="/login" style={{ padding: 5 }}>
 									<button
 										type="button"
 										class="btn btn-danger"
