@@ -87,7 +87,6 @@ const columns = [
 
 const options = {
 	filterType: "checkbox",
-	responsive: "scroll",
 };
 
 class MuitableMaterials extends React.Component {
