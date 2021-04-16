@@ -13,7 +13,7 @@ function Top() {
 					</Col>
 					<Col xs={10}>
 						<h1 className="h1">BUILDING CONSTRUCTION COSTS DATABASE</h1>
-						<h3>Informative Data for your Intelligent Costs Decisions</h3>
+						<h3>Informative Data for your Intelligent Cost Decisions</h3>
 					</Col>
 				</Row>
 			</Container>
