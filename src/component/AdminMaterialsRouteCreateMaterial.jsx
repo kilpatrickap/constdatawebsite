@@ -9,9 +9,6 @@ const headerStyleLarge = {
 	textAlign: "left",
 };
 
-const tableWidth = {
-	width: "1870px",
-};
 
 
 
@@ -159,7 +156,7 @@ export default class AdminMaterialsRouteCreateMaterial extends Component {
 				<h3>Create New Material</h3>
 				<form onSubmit={this.onSubmit}>
 					<div>
-						<table className="table-bordered" style={{ marginTop: 20 }} style={tableWidth}>
+						<table className="table-bordered" style={{ marginTop: 20 }}>
 							<thead>
 								<tr>
 									<th>Code</th>

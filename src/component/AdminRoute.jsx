@@ -39,18 +39,18 @@ class AdminRoute extends Component {
 						<div>
 							<div style={{ textAlign: "center" }}>
 								<Link to="/admin/materials" style={{ padding: 5 }}>
-									<button type="button" class="btn btn-secondary">
+									<button type="button" className="btn btn-secondary">
 										Materials
 									</button>
 								</Link>
 
 								<Link to="/admin/plant" style={{ padding: 5 }}>
-									<button type="button" class="btn btn-secondary">
+									<button type="button" className="btn btn-secondary">
 										Plant
 									</button>
 								</Link>
 								<Link to="/admin/labour" style={{ padding: 5 }}>
-									<button type="button" class="btn btn-secondary">
+									<button type="button" className="btn btn-secondary">
 										Labour
 									</button>
 								</Link>
@@ -58,7 +58,7 @@ class AdminRoute extends Component {
 								<Link to="/login" style={{ padding: 5 }}>
 									<button
 										type="button"
-										class="btn btn-danger"
+										className="btn btn-danger"
 										onClick={this.handleLogout}
 									>
 										Logout

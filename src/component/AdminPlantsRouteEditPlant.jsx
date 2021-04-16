@@ -15,9 +15,7 @@ const headerStyleLarge = {
 	textAlign: "left",
 };
 
-const tableWidth = {
-	width: "1400px",
-};
+
 
 
 
@@ -167,7 +165,7 @@ export default class AdminPlantsRouteEditPlant extends Component {
 						<table
 							className="table-bordered"
 							style={{ marginTop: 20 }}
-							style={tableWidth}
+							
 						>
 							<thead>
 								<tr>

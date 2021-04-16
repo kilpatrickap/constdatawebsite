@@ -9,10 +9,6 @@ const headerStyleLarge = {
 	textAlign: "left",
 };
 
-const tableWidth = {
-	width: "1870px",
-};
-
 
 
 export default class AdminLabourRouteCreateLabour extends Component {
@@ -159,7 +155,7 @@ export default class AdminLabourRouteCreateLabour extends Component {
 				<h3>Create New Labour Item</h3>
 				<form onSubmit={this.onSubmit}>
 					<div>
-						<table className="table-bordered" style={{ marginTop: 20 }} style={tableWidth}>
+						<table className="table-bordered" style={{ marginTop: 20 }} >
 							<thead>
 								<tr>
 									<th>Code</th>
