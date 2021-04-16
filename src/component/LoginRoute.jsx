@@ -35,27 +35,27 @@ function LoginRoute(props) {
 	};
 
 	return (
-		<div class="col-md-12">
+		<div className="col-md-12">
 			<Card>
 				<div style={cardStyle}>
 					<div>
 						<h1 style={{ textAlign: "Center" }}>Admin</h1>
 						<div>
-							<div class="form-group">
-								<label for="text">Username</label>
+							<div className="form-group">
+								<label>Username</label>
 								<input
 									type="text"
 									{...username}
-									class="form-control"
+									className="form-control"
 									name="username"
 								/>
 							</div>
-							<div class="form-group">
-								<label for="password">Password</label>
+							<div className="form-group">
+								<label>Password</label>
 								<input
 									type="password"
 									{...password}
-									class="form-control"
+									className="form-control"
 									name="password"
 								/>
 							</div>
