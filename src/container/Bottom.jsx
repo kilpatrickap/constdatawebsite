@@ -8,13 +8,13 @@ function Bottom() {
 			<Container fluid className="bottom">
 				<Row>
 					<Col xs lg="6">
-						<h5>About const DATA</h5>
+						<h5>About const DATA center</h5>
 						<p>
-							const DATA is Ghana’s pioneer and leading source of construction
+							const DATA center is Ghana’s pioneer and leading source of construction
 							cost information. We offer dependable cost data that is locally
 							relevant, accurate and up-to-date. Available in online formats,
 							Clients, Developers, Architects, Engineers, Quantity Surveyors and Contractors use
-							const DATA to get the information they need to build competitive
+							const DATA center to get the information they need to build competitive
 							cost estimates and control construction costs.
 						</p>
 					</Col>
@@ -24,7 +24,7 @@ function Bottom() {
 					<Col xs lg="2">
 						<h5>Contact</h5>
 						<p>Tel: +233541193598</p>
-						<p>Email: constdata@gmail.com</p>
+						<p>Email: constdatacenter@gmail.com</p>
 					</Col>
 				</Row>
 			</Container>

@@ -9,7 +9,7 @@ function Footer() {
 			<row>
 				<Col>
 					<Image src={Icon} />
-					<p>const DATA ©</p>
+					<p>const DATA center ©</p>
 					<p>Copyright @ 2021</p>
 				</Col>
 			</row>
