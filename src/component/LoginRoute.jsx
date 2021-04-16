@@ -4,18 +4,22 @@ import { Card } from "react-bootstrap";
 import axios from "axios";
 import { setUserSession } from "../Utils/Common";
 
-
 const cardStyle = {
 	boxShadow: "5px 8px 24px 5px rgba(208,216,243,0.6)",
-	width: "25%",
+	width: "20%",
 	padding: "20px",
 	textAlign: "Left",
+	margin: "auto",
+	marginTop: "100px",
+	marginBottom: "700px",
+	border: "5px solid rgba(0, 0, 0, 0.05)",
+	borderRadius: "25px",
 };
 
 function LoginRoute(props) {
 	const username = useFormInput("");
 	const password = useFormInput("");
-	
+
 	// handle button click of login form
 	const handleLogin = () => {
 		axios
@@ -25,18 +29,18 @@ function LoginRoute(props) {
 			})
 			.then((response) => {
 				console.log(response.data);
-				setUserSession( response.data.user);
-				props.history.push("/admin"); 		
+				setUserSession(response.data.user);
+				props.history.push("/admin");
 			});
 	};
 
 	return (
-		<div class="container mt-5" style={cardStyle}>
-			<h1 style={{ textAlign: "Center" }}>Admin</h1>
+		<div class="col-md-12">
 			<Card>
-				<div>
-					<div class="card">
-						<div class="card-body">
+				<div style={cardStyle}>
+					<div>
+						<h1 style={{ textAlign: "Center" }}>Admin</h1>
+						<div>
 							<div class="form-group">
 								<label for="text">Username</label>
 								<input
@@ -44,7 +48,7 @@ function LoginRoute(props) {
 									{...username}
 									class="form-control"
 									name="username"
-								></input>
+								/>
 							</div>
 							<div class="form-group">
 								<label for="password">Password</label>

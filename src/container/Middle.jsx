@@ -8,6 +8,8 @@ import "../styles/middleStyle.css";
 
 const cardStyle = {
 	boxShadow: "5px 8px 24px 5px rgba(208, 216, 243, 0.6)",
+	border: "3px solid rgba(0, 0, 0, 0.05)",
+	borderRadius: "10px",
 };
 
 function Middle() {
