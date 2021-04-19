@@ -22,14 +22,11 @@ function Middle() {
 					<Card.Body>
 						<Card.Text>Click here for Materials cost</Card.Text>
 						<Link to="/materials">
-							<Button variant="secondary" size="lg" block >
+							<Button variant="secondary" size="lg" block>
 								Materials
 							</Button>
 						</Link>
 					</Card.Body>
-					<Card.Footer>
-						<small className="text-muted">Last updated 3 mins ago</small>
-					</Card.Footer>
 				</Card>
 				<Card border="gray" style={cardStyle}>
 					<Card.Header>EQUIPMENT</Card.Header>
@@ -42,9 +39,6 @@ function Middle() {
 							</Button>
 						</Link>
 					</Card.Body>
-					<Card.Footer>
-						<small className="text-muted">Last updated 4 mins ago</small>
-					</Card.Footer>
 				</Card>
 				<Card border="gray" style={cardStyle}>
 					<Card.Header>LABOUR</Card.Header>
@@ -57,9 +51,6 @@ function Middle() {
 							</Button>
 						</Link>
 					</Card.Body>
-					<Card.Footer>
-						<small className="text-muted">Last updated 7 mins ago</small>
-					</Card.Footer>
 				</Card>
 			</CardDeck>
 		</div>
