@@ -21,6 +21,10 @@ const testimonialImage = {
 	right: "350px",
 };
 
+const carouselTextStyle = {
+    color: "#40394a",
+}
+
 function ControlledCarousel() {
 	const [index, setIndex] = useState(0);
 
@@ -39,7 +43,7 @@ function ControlledCarousel() {
 							src={Kil}
 							alt="First slide"
 						/>
-						<Carousel.Caption>
+						<Carousel.Caption style={carouselTextStyle}>
 							<h3>Kilpatrick, Consar Limited, Accra</h3>
 							<p>"A very useful site."</p>
 						</Carousel.Caption>
@@ -52,7 +56,7 @@ function ControlledCarousel() {
 							alt="Second slide"
 						/>
 
-						<Carousel.Caption>
+						<Carousel.Caption style={carouselTextStyle}>
 							<h3>Emmanuel, Consar Limited, Accra</h3>
 							<p>"Lets make things simple. Just click for the solution."</p>
 						</Carousel.Caption>
@@ -65,7 +69,7 @@ function ControlledCarousel() {
 							alt="Third slide"
 						/>
 
-						<Carousel.Caption>
+						<Carousel.Caption style={carouselTextStyle}>
 							<h3>Kwasi Banful, Consar Limited, Accra</h3>
 							<p>"Effective data for construction teams."</p>
 						</Carousel.Caption>
