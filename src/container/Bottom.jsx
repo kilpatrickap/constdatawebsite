@@ -18,7 +18,7 @@ function Bottom() {
 						<h5>About</h5>
 						<hr></hr>
 						<p>
-							const DATA center is an online database source of construction cost
+							const DATA center is an online database resource for construction cost
 							information. We offer dependable cost data that is locally
 							relevant, accurate and up-to-date. Available in online formats,
 							Clients, Developers, Architects, Engineers, Quantity Surveyors and
