@@ -15,14 +15,14 @@ function Bottom() {
 			<Container fluid className="bottom">
 				<Row>
 					<Col xs lg="6">
-						<h5>About const DATA center</h5>
+						<h5>About</h5>
 						<hr></hr>
 						<p>
-							const DATA center is the leading source of construction cost
+							const DATA center is an online database source of construction cost
 							information. We offer dependable cost data that is locally
 							relevant, accurate and up-to-date. Available in online formats,
 							Clients, Developers, Architects, Engineers, Quantity Surveyors and
-							Contractors use const DATA center to get the information they need
+							Contractors use const DATA center to get the relevant information they need
 							to build competitive cost estimates and control construction
 							costs.
 						</p>
