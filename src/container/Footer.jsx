@@ -10,7 +10,7 @@ function Footer() {
 				<Col>
 					<Image src={Icon} />
 					<p>const DATA center ©</p>
-					<p>Copyright @ 2021</p>
+					<small>Copyright @ {(new Date().getFullYear())} | const DATA center Company, LLC | All Rights Reserved</small>
 				</Col>
 			
 		</footer>
