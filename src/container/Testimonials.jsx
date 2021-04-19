@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { Container, Carousel } from "react-bootstrap";
 import Kil from "../assets/kil.png";
+import Emma from "../assets/Emma.jpg";
+import Kwasi from "../assets/Kwasi.jpg";
 
 const carouselStyle = {
-	backgroundColor: "#40394a",
-	color: "#40394a",
-	paddingTop: "50px",
-	paddingBottom: "50px",
+	backgroundColor: "#7eca9c",
+	paddingTop: "20px",
+	paddingBottom: "20px",
 	textAlign: "center",
 };
 
 const testimonialImage = {
-	width: "200px",
-	height: "200px",
+	width: "150px",
+	height: "150px",
 	borderRadius: "100%",
 	margin: "auto",
 	textAlign: "left",
 	position: "relative",
-	right: "400px",
+	right: "350px",
 };
 
 function ControlledCarousel() {
@@ -39,40 +40,34 @@ function ControlledCarousel() {
 							alt="First slide"
 						/>
 						<Carousel.Caption>
-							<h3>First slide label</h3>
-							<p>
-								Nulla vitae elit libero, a pharetra augue mollis interdum. Nulla
-								vitae elit libero, a pharetra augue mollis interdum. Nulla vitae
-								elit libero, a pharetra augue mollis interdum.
-							</p>
+							<h3>Kilpatrick, Consar Limited, Accra</h3>
+							<p>"A very useful site."</p>
 						</Carousel.Caption>
 					</Carousel.Item>
 					<Carousel.Item>
 						<img
 							style={testimonialImage}
 							// className="d-block w-100"
-							src={Kil}
+							src={Emma}
 							alt="Second slide"
 						/>
 
 						<Carousel.Caption>
-							<h3>Second slide label</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<h3>Emmanuel, Consar Limited, Accra</h3>
+							<p>"Lets make things simple. Just click for the solution."</p>
 						</Carousel.Caption>
 					</Carousel.Item>
 					<Carousel.Item>
 						<img
 							style={testimonialImage}
 							// className="d-block w-100"
-							src={Kil}
+							src={Kwasi}
 							alt="Third slide"
 						/>
 
 						<Carousel.Caption>
-							<h3>Third slide label</h3>
-							<p>
-								Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-							</p>
+							<h3>Kwasi Banful, Consar Limited, Accra</h3>
+							<p>"Effective data for construction teams."</p>
 						</Carousel.Caption>
 					</Carousel.Item>
 				</Carousel>
