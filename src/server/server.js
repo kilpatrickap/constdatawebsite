@@ -18,7 +18,7 @@ const port = process.env.PORT || 4000;
 
 
 
-mongoose.connect("mongodb+srv://admin-kilpatrick:191986Kil@constdatacenter.9ji0y.mongodb.net/plants", {
+mongoose.connect("mongodb://127.0.0.1:27017/plants", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
