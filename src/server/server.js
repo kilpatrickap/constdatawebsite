@@ -9,7 +9,7 @@ const labourRoutes = express.Router();
 
 const userRoutes = require("./userRoutes");
 
-const PORT = 4000;
+const port = process.env.PORT || 4000;
 
 //////////////////// --PLANTS-- /////////////////////////////
 
@@ -19,12 +19,54 @@ const { db } = require("./plant.model");
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/plants", { useNewUrlParser: true });
-const connection = mongoose.connection;
 
-connection.once("open", function () {
-	console.log("MongoDB database connection established successfully");
+
+
+// //Mongo Atlas connection configuration settings
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://admin-kilpatrick:191986Kil@constdatacenter.9ji0y.mongodb.net/plants";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
 });
+
+
+
+
+// mongodb+srv://admin-kilpatrick:<password>@constdatacenter.9ji0y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+
+
+
+// mongoose.connect("mongodb://127.0.0.1:27017/plants", { useNewUrlParser: true });
+// const connection = mongoose.connection;
+
+// connection.once("open", function () {
+// 	console.log("MongoDB database connection established successfully");
+// });
+
+
+
+
+
+// const connection = "mongodb+srv://admin-kilpatrick:191986Kil@constdatacenter.9ji0y.mongodb.net/plants?retryWrites=true&w=majority";
+// mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
+// 	.then(() => console.log("Database connected Successfully"))
+// 	.catch(err => console.log(err));
+
+
+
+
+
+
+
+
+
+
+
+
 
 plantRoutes.route("/").get(function (req, res) {
 	Plant.find(function (err, plants) {
@@ -100,13 +142,7 @@ let Material = require("./material.model");
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/materials", {
-	useNewUrlParser: true,
-});
 
-connection.once("open", function () {
-	console.log("MongoDB database connection established successfully");
-});
 
 materialsRoutes.route("/").get(function (req, res) {
 	Material.find(function (err, materials) {
@@ -182,11 +218,7 @@ let Labour = require("./labour.model");
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/labour", { useNewUrlParser: true });
 
-connection.once("open", function () {
-	console.log("MongoDB database connection established successfully");
-});
 
 labourRoutes.route("/").get(function (req, res) {
 	Labour.find(function (err, labours) {
@@ -257,14 +289,11 @@ labourRoutes.route("/delete/:id").get(function (req, res) {
 
 //////////////////// --LOGIN AUTHENTICATION-- /////////////////////////////
 
-mongoose.connect("mongodb://127.0.0.1:27017/users", { useNewUrlParser: true });
 
-connection.once("open", function () {
-	console.log("MongoDB database connection established successfully");
-});
+
 
 app.use(express.json());
-// here we want express to use userRoutes for all requests coming at /auth like /auth/login
+// here we want express to use userRoutes for all requests coming at /auth like /auth/login and /auth/signup
 
 
 
@@ -282,6 +311,6 @@ app.use("/materials", materialsRoutes);
 
 app.use("/plants", plantRoutes);
 
-app.listen(PORT, function () {
-	console.log("Server is running on Port: " + PORT);
+app.listen(port, function () {
+	console.log("Server is running on Port: " + port);
 });
