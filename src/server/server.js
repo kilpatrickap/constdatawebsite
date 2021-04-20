@@ -11,6 +11,30 @@ const userRoutes = require("./userRoutes");
 
 const port = process.env.PORT || 4000;
 
+
+// mongodb://127.0.0.1:27017
+// "mongodb+srv://admin-kilpatrick:191986Kil@constdatacenter.9ji0y.mongodb.net/plants"
+
+
+
+
+mongoose.connect("mongodb+srv://admin-kilpatrick:191986Kil@constdatacenter.9ji0y.mongodb.net/plants", {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
+const connection = mongoose.connection;
+
+connection.once("open", function () {
+	console.log("MongoDB database connection established successfully");
+});
+
+
+
+
+
+
+
+
 //////////////////// --PLANTS-- /////////////////////////////
 
 let Plant = require("./plant.model");
@@ -18,53 +42,6 @@ const { db } = require("./plant.model");
 
 app.use(cors());
 app.use(bodyParser.json());
-
-
-
-
-// //Mongo Atlas connection configuration settings
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://admin-kilpatrick:191986Kil@constdatacenter.9ji0y.mongodb.net/plants";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
-
-
-
-
-// mongodb+srv://admin-kilpatrick:<password>@constdatacenter.9ji0y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-
-
-
-
-// mongoose.connect("mongodb://127.0.0.1:27017/plants", { useNewUrlParser: true });
-// const connection = mongoose.connection;
-
-// connection.once("open", function () {
-// 	console.log("MongoDB database connection established successfully");
-// });
-
-
-
-
-
-// const connection = "mongodb+srv://admin-kilpatrick:191986Kil@constdatacenter.9ji0y.mongodb.net/plants?retryWrites=true&w=majority";
-// mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
-// 	.then(() => console.log("Database connected Successfully"))
-// 	.catch(err => console.log(err));
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -142,8 +119,6 @@ let Material = require("./material.model");
 app.use(cors());
 app.use(bodyParser.json());
 
-
-
 materialsRoutes.route("/").get(function (req, res) {
 	Material.find(function (err, materials) {
 		if (err) {
@@ -218,8 +193,6 @@ let Labour = require("./labour.model");
 app.use(cors());
 app.use(bodyParser.json());
 
-
-
 labourRoutes.route("/").get(function (req, res) {
 	Labour.find(function (err, labours) {
 		if (err) {
@@ -289,19 +262,8 @@ labourRoutes.route("/delete/:id").get(function (req, res) {
 
 //////////////////// --LOGIN AUTHENTICATION-- /////////////////////////////
 
-
-
-
 app.use(express.json());
 // here we want express to use userRoutes for all requests coming at /auth like /auth/login and /auth/signup
-
-
-
-
-
-
-
-
 
 app.use("/auth", userRoutes);
 
