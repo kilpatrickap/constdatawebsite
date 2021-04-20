@@ -10,7 +10,7 @@ function LabourTop() {
 				<Row>
 					<Col xs={12}>
 						<Image src={LabIcon} />
-						<h1 className="h1">LABOUR COST</h1>
+						<h1 className="h1">LABOUR</h1>
 					</Col>
 				</Row>
 			</Container>

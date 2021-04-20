@@ -11,7 +11,7 @@ function EquipmentTop() {
 					
 					<Col xs={12}>
 						<Image src={EqpmtIcon} />
-						<h1 className="h1">EQUIPMENT COST</h1>
+						<h1 className="h1">EQUIPMENT</h1>
 					</Col>
 				</Row>
 			</Container>

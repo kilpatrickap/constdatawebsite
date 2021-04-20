@@ -11,7 +11,7 @@ function Top() {
 					
 					<Col xs={12}>
 						<Image src={MatsIcon} />
-						<h1 className="h1">MATERIALS COST</h1>
+						<h1 className="h1">MATERIALS</h1>
 					</Col>
 				</Row>
 			</Container>
