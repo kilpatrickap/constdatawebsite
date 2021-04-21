@@ -30,33 +30,6 @@ connection.once("open", function () {
 
 
 
-
-
-
-
-
-
-
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants";
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
-
-
-////////////////////// --TEST-- //////////////
-
-
-
-
-
-
-
-
-
 //////////////////// --PLANTS-- /////////////////////////////
 
 let Plant = require("./plant.model");
