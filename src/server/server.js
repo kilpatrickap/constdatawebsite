@@ -13,32 +13,41 @@ const port = 4000;
 
 
 
+// "mongodb://127.0.0.1:27017/plants"
 
 
+mongoose.connect("mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants", {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
+const connection = mongoose.connection;
 
-// mongoose.connect("mongodb://127.0.0.1:27017/plants", {
-// 	useNewUrlParser: true,
-// 	useUnifiedTopology: true,
-// });
-// const connection = mongoose.connection;
-
-// connection.once("open", function () {
-// 	console.log("MongoDB database connection established successfully");
-// });
-
-
-
-
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
+connection.once("open", function () {
+	console.log("MongoDB database connection established successfully");
 });
 
 
+
+
+
+
+
+
+
+
+
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants";
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
+
+////////////////////// --TEST-- //////////////
 
 
 
