@@ -30,7 +30,7 @@ const port = 4000;
 
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://admin-Kilpatrick:******@cluster0.fbna3.mongodb.net/plants?retryWrites=true&w=majority";
+const uri = "mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
