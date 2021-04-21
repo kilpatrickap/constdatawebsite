@@ -9,24 +9,37 @@ const labourRoutes = express.Router();
 
 const userRoutes = require("./userRoutes");
 
-const port = process.env.PORT || 4000;
-
-
-// mongodb://127.0.0.1:27017
-// "mongodb+srv://admin-kilpatrick:191986Kil@constdatacenter.9ji0y.mongodb.net/plants"
+const port = 4000;
 
 
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/plants", {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
+
+
+// mongoose.connect("mongodb://127.0.0.1:27017/plants", {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true,
+// });
+// const connection = mongoose.connection;
+
+// connection.once("open", function () {
+// 	console.log("MongoDB database connection established successfully");
+// });
+
+
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://admin-Kilpatrick:******@cluster0.fbna3.mongodb.net/plants?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
 });
-const connection = mongoose.connection;
 
-connection.once("open", function () {
-	console.log("MongoDB database connection established successfully");
-});
+
+
 
 
 
@@ -46,7 +59,7 @@ app.use(bodyParser.json());
 
 
 plantRoutes.route("/").get(function (req, res) {
-	Plant.find(function (err, plants) {
+	Plant.find({}, function (err, plants) {
 		if (err) {
 			console.log(err);
 		} else {
@@ -120,7 +133,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 materialsRoutes.route("/").get(function (req, res) {
-	Material.find(function (err, materials) {
+	Material.find({}, function (err, materials) {
 		if (err) {
 			console.log(err);
 		} else {
@@ -194,7 +207,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 labourRoutes.route("/").get(function (req, res) {
-	Labour.find(function (err, labours) {
+	Labour.find({}, function (err, labours) {
 		if (err) {
 			console.log(err);
 		} else {
