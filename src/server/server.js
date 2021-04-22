@@ -10,7 +10,7 @@ const labourRoutes = express.Router();
 
 const userRoutes = require("./userRoutes");
 
-const port = 4000;
+// const port = 4000;
 
 
 // "mongodb://127.0.0.1:27017/plants"
@@ -265,6 +265,18 @@ app.use("/labour", labourRoutes);
 app.use("/materials", materialsRoutes);
 
 app.use("/plants", plantRoutes);
+
+
+
+
+
+
+
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+	port = 4000;
+}
 
 app.listen(port, function () {
 	console.log("Server is running on Port: " + port);
