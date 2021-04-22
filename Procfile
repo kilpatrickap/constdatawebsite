@@ -1,1 +1,1 @@
-web: node /component/App.jsx
+web: node App.jsx
