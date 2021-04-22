@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -12,11 +13,9 @@ const userRoutes = require("./userRoutes");
 const port = 4000;
 
 
-
 // "mongodb://127.0.0.1:27017/plants"
 
-
-mongoose.connect("mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants", {
+mongoose.connect(`mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants`, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
@@ -25,7 +24,6 @@ const connection = mongoose.connection;
 connection.once("open", function () {
 	console.log("MongoDB database connection established successfully");
 });
-
 
 
 
