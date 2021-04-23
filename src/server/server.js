@@ -1,5 +1,5 @@
-const dotenv = require('dotenv');
-dotenv.config({ path: process.cwd() + '/config/config.env' });
+const dotenv = require("dotenv");
+dotenv.config({ path: process.cwd() + "/config/config.env" });
 
 const express = require("express");
 const app = express();
@@ -14,10 +14,10 @@ const userRoutes = require("./userRoutes");
 
 // const port = 4000;
 
-
 // "mongodb://127.0.0.1:27017/plants"
 // "mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants"
-process.env['REACT_APP_MONGODB_URI'] = "mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants";
+process.env["REACT_APP_MONGODB_URI"] =
+	"mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants";
 // console.log(process.env);
 
 mongoose.connect(process.env.REACT_APP_MONGODB_URI, {
@@ -30,9 +30,6 @@ connection.once("open", function () {
 	console.log("MongoDB database connection established successfully");
 });
 
-
-
-
 //////////////////// --PLANTS-- /////////////////////////////
 
 let Plant = require("./plant.model");
@@ -40,8 +37,6 @@ const { db } = require("./plant.model");
 
 app.use(cors());
 app.use(bodyParser.json());
-
-
 
 plantRoutes.route("/").get(function (req, res) {
 	Plant.find({}, function (err, plants) {
@@ -270,13 +265,6 @@ app.use("/labour", labourRoutes);
 app.use("/materials", materialsRoutes);
 
 app.use("/plants", plantRoutes);
-
-
-
-
-
-
-
 
 let port = process.env.PORT;
 if (port == null || port == "") {
