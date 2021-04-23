@@ -13,8 +13,11 @@ const userRoutes = require("./userRoutes");
 
 
 // "mongodb://127.0.0.1:27017/plants"
+// "mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants"
+process.env['REACT_APP_MONGODB_URI'] = "mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants";
+// console.log(process.env);
 
-mongoose.connect(`mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants`, {
+mongoose.connect(process.env.REACT_APP_MONGODB_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
