@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+	require("dotenv").config();
+}
+
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -7,15 +11,11 @@ const plantRoutes = express.Router();
 const materialsRoutes = express.Router();
 const labourRoutes = express.Router();
 
-const userRoutes = require("./userRoutes");
+const userRoutes = require("./src/server/userRoutes");
 
 // const port = 4000;
 
 // "mongodb://127.0.0.1:27017/plants"
-// "mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants"
-process.env["REACT_APP_MONGODB_URI"] =
-	"mongodb+srv://admin-Kilpatrick:191986Kil@cluster0.fbna3.mongodb.net/plants";
-// console.log(process.env);
 
 mongoose.connect(process.env.REACT_APP_MONGODB_URI, {
 	useNewUrlParser: true,
@@ -29,8 +29,8 @@ connection.once("open", function () {
 
 //////////////////// --PLANTS-- /////////////////////////////
 
-let Plant = require("./plant.model");
-const { db } = require("./plant.model");
+let Plant = require("./src/server/plant.model");
+const { db } = require("./src/server/plant.model");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -104,7 +104,7 @@ plantRoutes.route("/delete/:id").get(function (req, res) {
 
 //////////////////// --MATERIALS-- /////////////////////////////
 
-let Material = require("./material.model");
+let Material = require("./src/server/material.model");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -178,7 +178,7 @@ materialsRoutes.route("/delete/:id").get(function (req, res) {
 
 //////////////////// --LABOUR-- /////////////////////////////
 
-let Labour = require("./labour.model");
+let Labour = require("./src/server/labour.model");
 
 app.use(cors());
 app.use(bodyParser.json());
