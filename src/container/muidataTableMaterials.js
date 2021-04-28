@@ -96,7 +96,7 @@ class MuitableMaterials extends React.Component {
 	};
 
 	componentDidMount() {
-		axios.get("http://localhost:4000/materials/").then((res) => {
+		axios.get("https://constdata.herokuapp.com/materials/").then((res) => {			//before: ("http://localhost:4000/materials/")
 			const materials = res.data;
 			const data = [];
 			materials.map((x) =>

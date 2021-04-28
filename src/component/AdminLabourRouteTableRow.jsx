@@ -10,7 +10,7 @@ class AdminLabourRouteTableRow extends Component {
 
 	delete() {
 		axios
-			.get("http://localhost:4000/labour/delete/" + this.props.obj._id)
+			.get("https://constdata.herokuapp.com/labour/delete/" + this.props.obj._id)			//before: ("http://localhost:4000/labour/delete/")	
 			.then(console.log("Deleted"))
 			.catch((err) => console.log(err));
 	}

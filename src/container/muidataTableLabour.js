@@ -96,7 +96,7 @@ class MuitableLabour extends React.Component {
 	};
 
 	componentDidMount() {
-		axios.get("http://localhost:4000/labour/").then((res) => {
+		axios.get("https://constdata.herokuapp.com/labour/").then((res) => {			//before: ("http://localhost:4000/labour/")
 			const labour = res.data;
 			const data = [];
 			labour.map((x) =>

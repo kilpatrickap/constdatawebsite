@@ -132,7 +132,7 @@ export default class AdminLabourRouteCreateLabour extends Component {
 		console.log(newLabour);
 
 		axios
-			.post("http://localhost:4000/labour/add", newLabour)
+			.post("https://constdata.herokuapp.com/labour/add", newLabour)		//before: ("http://localhost:4000/labour/add")		
 			.then((res) => console.log(res.data));
 
 		this.setState({
