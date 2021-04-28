@@ -51,7 +51,7 @@ export default class AdminLabourRouteEditLabour extends Component {
 
 	componentDidMount() {
 		axios
-			.get("/labour/" + this.props.match.params.id)			//before: ("http://localhost:4000/labour/")	
+			.get("http://localhost:4000/labour/" + this.props.match.params.id)			//before: ("http://localhost:4000/labour/")	
 			.then((response) => {
 				this.setState({
 					lab_code: response.data.lab_code,
