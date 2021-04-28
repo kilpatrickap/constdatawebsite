@@ -10,7 +10,7 @@ export default class AdminLabourRouteLabourList extends Component {
 
 	componentDidMount() {
 		axios
-			.get("https://constdata.herokuapp.com/labour/")				//before: ("http://localhost:4000/labour/")	
+			.get("/labour/")				//before: ("http://localhost:4000/labour/")	
 			.then((response) => {
 				this.setState({ labour: response.data });
 			})
@@ -21,7 +21,7 @@ export default class AdminLabourRouteLabourList extends Component {
 
 	componentDidUpdate() {
 		axios
-			.get("https://constdata.herokuapp.com/labour/")						//before: ("http://localhost:4000/labour/")	
+			.get("/labour/")						//before: ("http://localhost:4000/labour/")	
 			.then((response) => {
 				this.setState({ labour: response.data });
 			})

@@ -96,7 +96,7 @@ class MuitableEquipment extends React.Component {
 	};
 
 	componentDidMount() {
-		axios.get("https://constdata.herokuapp.com/plants/").then((res) => {			//before: ("http://localhost:4000/plants/")
+		axios.get("/plants/").then((res) => {			//before: ("http://localhost:4000/plants/")
 			const plants = res.data;
 			const data = [];
 			plants.map((x) =>
