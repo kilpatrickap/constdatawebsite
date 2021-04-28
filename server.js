@@ -17,9 +17,16 @@ const userRoutes = require("./src/server/userRoutes");
 
 // "mongodb://127.0.0.1:27017/plants"
 
+// @cluster0.fbna3.mongodb.net/plants
+
+
 mongoose.connect(process.env.REACT_APP_MONGODB_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
+	ssl: true,
+	replicaSet: '<clusterName>-shard-0',
+    authSource: 'admin',
+    retryWrites: true,
 });
 const connection = mongoose.connection;
 
