@@ -1,9 +1,9 @@
 if (process.env.NODE_ENV !== "production") {
 	require("dotenv").config();
 }
-
 const express = require("express");
 const app = express();
+app.use("/", express.static("build")); // Make build folder accessible to the app
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -22,11 +22,7 @@ const userRoutes = require("./src/server/userRoutes");
 
 mongoose.connect(process.env.REACT_APP_MONGODB_URI, {
 	useNewUrlParser: true,
-	useUnifiedTopology: true,
-	ssl: true,
-	replicaSet: '<clusterName>-shard-0',
-    authSource: 'admin',
-    retryWrites: true,
+	useUnifiedTopology: true
 });
 const connection = mongoose.connection;
 
@@ -278,3 +274,5 @@ if (port == null || port == "") {
 app.listen(port, function () {
 	console.log("Server is running on Port: " + port);
 });
+
+app.all("/*", (req, res) => { res.sendFile(__dirname + "/build/index.html"); }); //at the end of the server.js to catch all.
