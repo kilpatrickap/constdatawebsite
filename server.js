@@ -261,7 +261,7 @@ app.use(express.json());
 
 let port = process.env.PORT;
 
-app.use(`/${process.env.PORT}/auth`, userRoutes);
+app.use("/auth", userRoutes);
 
 app.use(`/${process.env.PORT}/labour`, labourRoutes);					
 
