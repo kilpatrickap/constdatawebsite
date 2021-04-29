@@ -3,7 +3,6 @@ if (process.env.NODE_ENV !== "production") {
 }
 const express = require("express");
 const app = express();
-app.use("/", express.static("build")); 						// Make build folder accessible to the app
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -267,7 +266,7 @@ app.use("/labour", labourRoutes);
 app.use("/materials", materialsRoutes);			
 
 app.use("/plants", plantRoutes);	
-				
+
 
 let port = process.env.PORT;
 if (port == null || port == "") {
@@ -278,4 +277,4 @@ app.listen(port, function () {
 	console.log("Server is running on Port: " + port);
 });
 
-app.all("/*", (req, res) => { res.sendFile(__dirname + "/build/index.html"); }); //at the end of the server.js to catch all!
+

@@ -21,7 +21,7 @@ export default class AdminPlantsRoutePlantsList extends Component {
 
 	componentDidUpdate() {
 		axios
-			.get("/http://localhost:4000/plants/")									//before: ("http://localhost:4000/plants/")	
+			.get("http://localhost:4000/plants/")									//before: ("http://localhost:4000/plants/")	
 			.then((response) => {
 				this.setState({ plants: response.data });
 			})
