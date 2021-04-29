@@ -263,11 +263,11 @@ let port = process.env.PORT;
 
 app.use("/auth", userRoutes);
 
-app.use(`/${process.env.PORT}/labour`, labourRoutes);					
+app.use("/labour", labourRoutes);					
 
 app.use(`/${process.env.PORT}/materials`, materialsRoutes);			
 
-app.use(`/${process.env.PORT}/plants`, plantRoutes);					
+app.use("/plants", plantRoutes);					
 
 
 if (port == null || port == "") {

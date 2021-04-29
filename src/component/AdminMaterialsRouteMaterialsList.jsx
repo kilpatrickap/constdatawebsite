@@ -10,7 +10,7 @@ export default class AdminMaterialsRouteMaterialsList extends Component {
 
 	componentDidMount() {
 		axios
-			.get(`/${process.env.PORT}/materials`)					//before: ("http://localhost:4000/materials/")	
+			.get("/materials")					//before: ("http://localhost:4000/materials/")	
 			.then((response) => {
 				this.setState({ plants: response.data });
 			})
@@ -21,7 +21,7 @@ export default class AdminMaterialsRouteMaterialsList extends Component {
 
 	componentDidUpdate() {
 		axios
-			.get(`/${process.env.PORT}/materials`)					//before: ("http://localhost:4000/materials/")	
+			.get("/materials")					//before: ("http://localhost:4000/materials/")	
 			.then((response) => {
 				this.setState({ materials: response.data });
 			})
