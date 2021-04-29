@@ -1,9 +1,10 @@
 if (process.env.NODE_ENV !== "production") {
 	require("dotenv").config();
 }
+const path = require("path");
 const express = require("express");
 const app = express();
-app.use("/", express.static("build")); // Make build folder accessible to the app
+// app.use("/", express.static("build")); // Make build folder accessible to the app
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -275,4 +276,11 @@ app.listen(port, function () {
 	console.log("Server is running on Port: " + port);
 });
 
-app.all("/*", (req, res) => { res.sendFile(__dirname + "/build/index.html"); }); //at the end of the server.js to catch all.
+// app.all("/*", (req, res) => { res.sendFile(__dirname + "/build/index.html"); }); //at the end of the server.js to catch all.
+
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "/build")));
+	app.get("*", (request, response) => {
+	  response.sendFile(path.join(__dirname, "/build", "index.html"));
+	});
+  }
