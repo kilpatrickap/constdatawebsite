@@ -259,15 +259,17 @@ labourRoutes.route("/delete/:id").get(function (req, res) {
 app.use(express.json());
 // here we want express to use userRoutes for all requests coming at /auth like /auth/login and /auth/signup
 
-app.use("/auth", userRoutes);
-
-app.use("/labour", labourRoutes);					
-
-app.use("/materials", materialsRoutes);			
-
-app.use("/plants", plantRoutes);					
-
 let port = process.env.PORT;
+
+app.use(`/${process.env.PORT}/auth`, userRoutes);
+
+app.use(`/${process.env.PORT}/labour`, labourRoutes);					
+
+app.use(`/${process.env.PORT}/materials`, materialsRoutes);			
+
+app.use(`/${process.env.PORT}/plants`, plantRoutes);					
+
+
 if (port == null || port == "") {
 	port = 4000;
 }
