@@ -134,7 +134,7 @@ export default class AdminPlantsRouteCreatePlant extends Component {
 		console.log(newPlant);
 
 		axios
-			.post("http://localhost:4000/plants/add", newPlant)
+			.post("/admin/plants/add", newPlant)					//before: ("http://localhost:4000/plants/add/")	
 			.then((res) => console.log(res.data));
 
 		this.setState({

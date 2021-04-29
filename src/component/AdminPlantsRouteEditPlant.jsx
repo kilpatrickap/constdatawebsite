@@ -51,7 +51,7 @@ export default class AdminPlantsRouteEditPlant extends Component {
 
 	componentDidMount() {
 		axios
-			.get("http://localhost:4000/plants/" + this.props.match.params.id)
+			.get("/admin/plants/" + this.props.match.params.id)					//before: ("http://localhost:4000/plants/")	
 			.then((response) => {
 				this.setState({
 					plant_code: response.data.plant_code,
@@ -148,7 +148,7 @@ export default class AdminPlantsRouteEditPlant extends Component {
 		console.log(obj);
 		axios
 			.post(
-				"http://localhost:4000/plants/update/" + this.props.match.params.id,
+				"/admin/plants/update/" + this.props.match.params.id,					//before: ("http://localhost:4000/plants/update")	
 				obj
 			)
 			.then((res) => console.log(res.data));

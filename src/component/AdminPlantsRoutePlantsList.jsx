@@ -10,7 +10,7 @@ export default class AdminPlantsRoutePlantsList extends Component {
 
 	componentDidMount() {
 		axios
-			.get("http://localhost:4000/plants/")
+			.get("/admin/plants/")									//before: ("http://localhost:4000/plants/")	
 			.then((response) => {
 				this.setState({ plants: response.data });
 			})
@@ -21,7 +21,7 @@ export default class AdminPlantsRoutePlantsList extends Component {
 
 	componentDidUpdate() {
 		axios
-			.get("http://localhost:4000/plants/")
+			.get("/admin/plants/")									//before: ("http://localhost:4000/plants/")	
 			.then((response) => {
 				this.setState({ plants: response.data });
 			})

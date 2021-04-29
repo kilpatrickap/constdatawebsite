@@ -261,20 +261,20 @@ app.use(express.json());
 
 app.use("/auth", userRoutes);
 
-app.use("/labour", labourRoutes);
+app.use("/admin/labour", labourRoutes);					//before "/labour"
 
-app.use("/materials", materialsRoutes);
+app.use("/admin/materials", materialsRoutes);			//before "/materials"
 
-app.use("/plants", plantRoutes);
+app.use("/admin/plants", plantRoutes);					//before "/plants"
 
 let port = process.env.PORT;
 if (port == null || port == "") {
 	port = 4000;
 }
 
-// app.listen(port, function () {
-// 	console.log("Server is running on Port: " + port);
-// });
+app.listen(port, function () {
+	console.log("Server is running on Port: " + port);
+});
 
 // app.all("/*", (req, res) => { res.sendFile(__dirname + "/build/index.html"); }); //at the end of the server.js to catch all.
 
