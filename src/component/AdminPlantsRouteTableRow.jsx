@@ -10,7 +10,7 @@ class AdminPlantsRouteTableRow extends Component {
 
 	delete() {
 		axios
-			.get("/admin/plants/delete/" + this.props.obj._id)			//before: ("http://localhost:4000/plants/delete/")	
+			.get("http://localhost:4000/plants/delete/" + this.props.obj._id)			//before: ("http://localhost:4000/plants/delete/")	
 			.then(console.log("Deleted"))
 			.catch((err) => console.log(err));
 	}

@@ -133,7 +133,7 @@ export default class AdminMaterialsRouteCreateMaterial extends Component {
 		console.log(newMaterial);
 
 		axios
-			.post("/admin/materials/add", newMaterial)					//before: ("http://localhost:4000/materials/add")	
+			.post("http://localhost:4000/materials/add", newMaterial)					//before: ("http://localhost:4000/materials/add")	
 			.then((res) => console.log(res.data));
 
 		this.setState({

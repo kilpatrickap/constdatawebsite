@@ -50,7 +50,7 @@ export default class AdminMaterialsRouteEditMaterial extends Component {
 
 	componentDidMount() {
 		axios
-			.get("/admin/materials/" + this.props.match.params.id)				//before: ("http://localhost:4000/materials/")	
+			.get("http://localhost:4000/materials/" + this.props.match.params.id)				//before: ("http://localhost:4000/materials/")	
 			.then((response) => {
 				this.setState({
 					mat_code: response.data.mat_code,
@@ -147,7 +147,7 @@ export default class AdminMaterialsRouteEditMaterial extends Component {
 		console.log(obj);
 		axios
 			.post(
-				"/admin/materials/update/" + this.props.match.params.id,				//before: ("http://localhost:4000/materials/update")
+				"http://localhost:4000/materials/update/" + this.props.match.params.id,				//before: ("http://localhost:4000/materials/update/")
 				obj
 			)
 			.then((res) => console.log(res.data));
