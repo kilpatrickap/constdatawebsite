@@ -276,7 +276,7 @@ app.listen(port, function () {
 	console.log("Server is running on Port: " + port);
 });
 
-// app.all("/*", (req, res) => { res.sendFile(__dirname + "/build/index.html"); }); //at the end of the server.js to catch all.
+// app.all("/*", (req, res) => { res.sendFile(__dirname + "/build/index.html"); }); //at the end of the server.js to catch all!
 
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "/build")));
