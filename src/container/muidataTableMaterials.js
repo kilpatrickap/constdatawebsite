@@ -96,7 +96,7 @@ class MuitableMaterials extends React.Component {
 	};
 
 	componentDidMount() {
-		axios.get("/admin/materials/").then((res) => {			//before: ("http://localhost:4000/materials/").
+		axios.get("/materials/").then((res) => {			//before: ("http://localhost:4000/materials/").
 			const materials = res.data;
 			const data = [];
 			materials.map((x) =>

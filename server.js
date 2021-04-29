@@ -261,11 +261,11 @@ app.use(express.json());
 
 app.use("/auth", userRoutes);
 
-app.use("/labour", labourRoutes);					//before "/labour"
+app.use("/labour", labourRoutes);					
 
-app.use("/materials", materialsRoutes);			//before "/materials"
+app.use("/materials", materialsRoutes);			
 
-app.use("/plants", plantRoutes);					//before "/plants"
+app.use("/plants", plantRoutes);					
 
 let port = process.env.PORT;
 if (port == null || port == "") {
